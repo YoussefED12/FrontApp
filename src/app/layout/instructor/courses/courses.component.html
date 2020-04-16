@@ -4,12 +4,15 @@
 
       <div class="col-md-4" *ngFor="let course of courses">
         <div class="card mb-4 box-shadow">
-          <img class="card-img-top" style="min-height: 200px;" [src]="'data:image/jpeg;base64,' +course?.image" alt="Card image cap">
+          <img clas s="card-img-top" style="min-height: 200px;" [src]="'data:image/jpeg;base64,' +course?.image" alt="Card image cap">
           <div class="card-body">
-            <h5 class="list-view-course-card--title--2pfA0">{{course.trainingName}}</h5>
+            <h5 class="list-view-course-card--title--2pfA0">{{course.trainingName}}</h5><small style="display: inline;"><a [href]="course.user.path">{{course.user.username}}</a></small>
             <p class="card-text"><i class='far fa-calendar-alt' style='font-size:24px'> {{course.startdate}}</i>&nbsp;&nbsp;
               <i class='far fa-calendar-times' style='font-size:24px'> {{course.endDate}} </i></p>
 
+              <a [href]="'assets/files/'+course.user.id+'.pdf'" type="application/pdf" width="100%" height="600px" >
+                cxcxTkharbi9
+              </a>
               <p class="card-text"><i class='fa fa-align-justify' style='font-size:24px'> {{course.description}}</i></p>
               <p class="card-text"><i class='fas fa-university' style='font-size:24px'> {{course.etablissement}}</i></p>
 

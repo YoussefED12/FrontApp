@@ -9,7 +9,6 @@ import { CourseService } from '../../shared/services/course.service';
 })
 export class CoursesComponent implements OnInit {
 
-  public size = new Array(6);
   public courses = new Array<Course>();
 
   constructor(private service: CourseService) { }
@@ -22,7 +21,7 @@ export class CoursesComponent implements OnInit {
 
   fetchLocalCourses() {
     this.service.getAllCourses().subscribe((courses: Array<any>) => {
-      this.courses = courses.filter(course => course.started == 0);
+      this.courses = courses.filter(course => course.started === 0);
     });
   }
 

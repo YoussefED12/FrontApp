@@ -37,7 +37,7 @@ export class CourseService {
   }
 
   public getStudentCourses(id: number): Observable<any> {
-    return this.http.get(this.BaseUrl + "");
+    return this.http.get(this.BaseUrl + "/inscription/findTraining/" + id);
   }
 
   public unSubscribeFromCourse(id: number): Observable<any> {

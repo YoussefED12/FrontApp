@@ -19,18 +19,18 @@ export class MyCoursesComponent implements OnInit {
     this.fetchData();
   }
 
-  unSubscribe(id: number) {
-    this.service.unSubscribeFromCourse(id).subscribe(
-      Response => {
-        alert("un subscribe with success");
-        this.fetchData();
-      }
-      ,
-      error => { alert("something went wrong"); }
-    );
-  }
+  // unSubscribe(id: number) {
+  //   this.service.unSubscribeFromCourse(id).subscribe(
+  //     Response => {
+  //       alert("un subscribe with success");
+  //       this.fetchData();
+  //     }
+  //     ,
+  //     error => { alert("something went wrong"); }
+  //   );
+  // }
   fetchData(){
-    this.service.getinstructorCourses(Number.parseInt(this.tokenStorage.getUserId())).subscribe(
+    this.service.getStudentCourses(Number.parseInt(this.tokenStorage.getUserId())).subscribe(
       courses => { this.courses = courses; }
     );
   }
