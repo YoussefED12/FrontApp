@@ -24,9 +24,9 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.notificationListenner(6000);
     }
     this.updateNavConf(2000);
+
 
   }
 
@@ -39,29 +39,17 @@ export class NavBarComponent implements OnInit {
   public updateNavConf(time: number) {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
+      this.NotficationService.updateNotifications().subscribe(
+        (response : Array<any>) => {
+          this.notified = response.length > 0 ;
+          this.notifsNumber = response.length  ;
+        }
+      )
     }
-    console.log('ref called');
-
+  
     setTimeout(() => {
       this.updateNavConf(time);
     }, time);
   }
-
-  public notificationListenner(duration: number) {
-    this.NotficationService.updateNotifications().subscribe(
-      (response : Array<any>) => {
-        this.notified = response.length > 0 ;
-        this.notifsNumber = response.length  ;
-      }
-    )
-    setTimeout(
-      () => {
-        this.notificationListenner(duration)
-      },
-      duration
-    );
-  }
-
-
 
 }

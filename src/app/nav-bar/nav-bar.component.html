@@ -2,16 +2,22 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"
-        ><strong class="text-success">E-Announce</strong> </a
-      >
+        ><strong class="text-success">E-Announce</strong>
+      </a>
     </div>
-    <ul class="nav navbar-nav ">
-      
+    <ul class="nav navbar-nav">
       <li>
-        <button *ngIf="isLoggedIn" routerLink="notifications" class="btn mx-4 btn-success"  [ngClass]="{'btn-danger': notified}"> 
-          <i class="fas fa-globe-europe fa-900px"></i> <strong>Notifications </strong>  <p *ngIf="notified " style="display: inline;">({{notifsNumber}})</p> <p *ngIf="!notified" style="display: inline;">(none)</p>
+        <button
+          *ngIf="isLoggedIn"
+          routerLink="notifications"
+          class="btn mx-4 btn-success"
+          [ngClass]="{ 'btn-danger': notified }"
+        >
+          <i class="fas fa-globe-europe fa-900px"></i>
+          <strong>Notifications </strong>
+          <p *ngIf="notified" style="display: inline;">({{ notifsNumber }})</p>
+          <p *ngIf="!notified" style="display: inline;">(none)</p>
         </button>
-        
       </li>
 
       <li *ngIf="isLoggedIn" class="nav-item">
