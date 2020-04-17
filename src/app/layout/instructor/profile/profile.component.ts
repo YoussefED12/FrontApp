@@ -9,6 +9,9 @@ import { TokenStorageService } from "src/app/authentication/token storage/token-
   styleUrls: ["./profile.component.css"],
 })
 export class ProfileComponent implements OnInit {
+
+  public profile = {};
+
   title = "File-Upload-Save";
   selectedFiles: FileList;
   currentFileUpload: File;
@@ -22,7 +25,12 @@ export class ProfileComponent implements OnInit {
     private tokenStorage: TokenStorageService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.profile =  {
+      name : this.tokenStorage.getUsername() ,
+      Auhtorities : this.tokenStorage.getAuthorities() , 
+    };
+  }
 
   downloadFile() {
     const link = document.createElement("a");

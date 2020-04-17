@@ -5,17 +5,12 @@
                  
                  <div class="form-group">
                    <label for="nom">Name :</label>
-                   <input type="text" class="form-control" id="nom" placeholder="Pierre GIRAUD" readonly>
-                 </div>
-                 
-                 <div class="form-group">
-                   <label for="email">Email</label>
-                   <input type="email" class="form-control" id="email" placeholder="pierre.giraud@edhec.com" readonly>
+                   <input type="text" class="form-control" id="nom" [placeholder]="profile.name" readonly>
                  </div>
 
                  <div class="form-group">
-                    <label for="email">User Name</label>
-                    <input type="email" class="form-control" id="email" placeholder="pierre.giraud@edhec.com" readonly>
+                    <label for="email">Role:</label>
+                    <input type="email" class="form-control" id="email" [placeholder]="profile.Auhtorities" readonly>
                 </div>
                  
                 <div class="form-group">

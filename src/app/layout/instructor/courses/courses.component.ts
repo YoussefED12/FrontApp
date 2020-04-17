@@ -10,6 +10,7 @@ import { CourseService } from '../../shared/services/course.service';
 export class CoursesComponent implements OnInit {
 
   public courses = new Array<Course>();
+  
 
   constructor(private service: CourseService) { }
 

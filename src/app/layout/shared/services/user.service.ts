@@ -7,6 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
+  public BaseUrl = "http://localhost:9090";
   constructor(private https: HttpClient) { }
- 
+
+
+  public getUsernameById(id : number): Observable<any> {
+    return this.https.get(this.BaseUrl+'/users/username/'+id);
+  }
 }
