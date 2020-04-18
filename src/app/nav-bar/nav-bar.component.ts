@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../authentication/token storage/token-storage.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { NotificationService } from '../services/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -19,15 +19,14 @@ export class NavBarComponent implements OnInit {
   notifsNumber: number = 0;
 
   constructor(private tokenStorage: TokenStorageService,
-    private NotficationService: NotificationService) { }
+    private NotficationService: NotificationService,
+    private router :Router) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
     }
-    this.updateNavConf(2000);
-
-
+    this.updateNavConf(4000);
   }
 
   public logout() {
@@ -46,7 +45,9 @@ export class NavBarComponent implements OnInit {
         }
       )
     }
-  
+    else {
+      //this.router.navigate(['/auth/login']);
+    }
     setTimeout(() => {
       this.updateNavConf(time);
     }, time);

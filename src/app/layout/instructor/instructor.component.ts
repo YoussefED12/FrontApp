@@ -17,14 +17,14 @@ export class InstructorComponent implements OnInit {
     }
 
     public verifyUser() {
-        // this.tokenStorage.getAuthorities().forEach(authority => {
-        //     if (authority == 'ROLE_INSTRUCTOR') {
-        //         this.logedInAsInstructor = true;
-        //     }
-        // });
-        // if (!this.logedInAsInstructor) {
-        //     this.routerService.navigate(['/auth/login']);
-        // }
+        this.tokenStorage.getAuthorities().forEach(authority => {
+            if (authority == 'ROLE_INSTRUCTOR') {
+                this.logedInAsInstructor = true;
+            }
+        });
+        if (!this.logedInAsInstructor) {
+            this.routerService.navigate(['/auth/login']);
+        }
 
     }
 } 

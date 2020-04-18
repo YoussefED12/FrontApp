@@ -17,7 +17,13 @@ export class NotificationService {
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
   public updateNotifications(): Observable<any> {
+    if (this.tokenStorage.getToken())
     return this.http.get(BASE_URL + '/notification/userNotification/' + this.tokenStorage.getUserId());
+    return null ;
+  }
+
+  public updateNotificationsForRead(): Observable<any> {
+    return this.http.get(BASE_URL + '/notification/userNotificationForMarkAsReaded/' + this.tokenStorage.getUserId());
   }
 
   public markNotificationsAsReaded(ids : Array<number>): Observable<any> {

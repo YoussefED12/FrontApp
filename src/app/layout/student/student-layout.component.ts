@@ -17,15 +17,14 @@ export class StudentLayoutComponent implements OnInit {
   }
 
   public verifyUser() {
-    // this.tokenStorage.getAuthorities().forEach(authority => {
-    //   if (authority == 'ROLE_STUDENT') {
-    //     this.logedInAsStudent = true;
-    //   }
-    // });
-    // if (!this.logedInAsStudent) {
-    //   this.routerService.navigate(['/auth/login']);
-    // }
-
+    this.tokenStorage.getAuthorities().forEach(authority => {
+      if (authority == 'ROLE_STUDENT') {
+        this.logedInAsStudent = true;
+      }
+    });
+    if (!this.logedInAsStudent) {
+      this.routerService.navigate(['/auth/login']);
+    }
   }
 
 }

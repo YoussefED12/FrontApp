@@ -8,7 +8,7 @@
         [src]="'data:image/jpeg;base64,' + course?.image"
         class="card-img-top"
       />
-      <div class="card-body">
+      <div class="card-body" style="position: relative;">
         <h2 class="card-title">
           {{ course.trainingName }}
           <small
@@ -29,7 +29,8 @@
           <div class="col-sm-4">
             <a
               [routerLink]="['../subscription', course.trainingName, course.id]"
-              class="btn btn-success"
+              class="btn btn-success mt-auto"
+              style="position: absolute; bottom: 5px;"
               >Subscribe</a
             >
           </div>
@@ -37,8 +38,8 @@
           <div class="col-sm-4">
             <a
               [routerLink]="['../coursesInfo', course.id]"
-              style="width: 100px;"
-              class="btn btn-warning"
+              style="width: 100px; position: absolute; bottom: 5px;"
+              class="btn btn-warning mt-auto"
               >Info</a
             >
           </div>

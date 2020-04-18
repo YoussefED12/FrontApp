@@ -15,23 +15,15 @@ export class NotificationsComponent implements OnInit {
   constructor(private service: NotificationService) { }
 
   ngOnInit() {
-    this.service.updateNotifications().subscribe(
+    this.service.updateNotificationsForRead().subscribe(
       response => {
+        console.log(response);
+        
         this.notifications = response;
-        this.marksNotficationsAsreaded(response);
       }
     );
   }
 
-  public marksNotficationsAsreaded(arr: Array<NotificationElement>) {
-    let notIds = [];
-    if (arr) {
-      arr.forEach(not => {
-        notIds.push(not.id);
-      });
-      this.service.markNotificationsAsReaded(notIds);
-      console.log(notIds);
-    }
-  }
+ 
 
 }
